@@ -6,13 +6,8 @@
 
     var mod = angular.module('CvLme');
 
-    mod.controller('RootCtrl',['$scope','parts',function($scope,parts){
-
-
-        $scope.parts = parts;
-
-
-
+    mod.controller('InfoCtrl',['$scope','info',function($scope,info){
+        $scope.info = info;
     }]);
 
 })();

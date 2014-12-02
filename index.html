@@ -6,18 +6,30 @@
     <link rel="stylesheet" href="styles/css/styles.css"/>
 
     <script type="application/javascript" src="bower_components/underscore/underscore-min.js"></script>
-    <script type="application/javascript" src="bower_components/underscore.string/dist/underscore.string.min.js"></script>
+    <script type="application/javascript"
+            src="bower_components/underscore.string/dist/underscore.string.min.js"></script>
     <script type="application/javascript" src="bower_components/moment/min/moment.min.js"></script>
     <script type="application/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
 
 </head>
 <body ng-app="CvLme" ng-controller="RootCtrl">
+<div class="container cv-page">
+    <div ng-repeat="partial in parts">
+        <div ng-include="partial.templateUrl"></div>
+    </div>
+</div>
+
+
 
 <script type="application/javascript" src="bower_components/angular/angular.min.js"></script>
 
 <script type="application/javascript" src="scripts/app.js"></script>
 
+<script type="application/javascript" src="scripts/constant/parts.js"></script>
+<script type="application/javascript" src="scripts/constant/info.js"></script>
+
 <script type="application/javascript" src="scripts/controller/RootCtrl.js"></script>
+<script type="application/javascript" src="scripts/controller/InfoCtrl.js"></script>
 
 
 </body>
