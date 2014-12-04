@@ -1,0 +1,23 @@
+
+.timeline {
+  position: fixed;
+  height: 50px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000;
+  .timeline-cursor {
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-top-color : #ccc;
+    transform: translate(-10px,0);
+  }
+  .timeline-bar {
+    width: 0;
+    height: 50px;
+    background-color: #f00;
+  }
+}

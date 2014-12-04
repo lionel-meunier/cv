@@ -12,6 +12,7 @@
     });
     var depth = new Array();
 
+    depth.push('ngAnimate');
 
     angular.module('CvLme',depth)
 

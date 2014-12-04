@@ -1,4 +1,11 @@
-<section class="cv-section" ng-controller="InfoCtrl">
+<section cv-section="partial.name" class="cv-section cv-section-intro" ng-controller="InfoCtrl">
+
+    <img ng-src="{{ info.picture }}"
+         alt="{{ info.lastName }} {{ info.firstName }}"
+         class="test-img"
+         cv-section-element
+            >
+
     <div class="row">
         <div class="col-md-10">
             <div class="row">
