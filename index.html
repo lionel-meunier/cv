@@ -15,38 +15,54 @@
 </head>
 <body ng-app="CvLme" ng-controller="RootCtrl">
 <div>
-    <div class="test-line-display"></div>
-    <div ng-repeat="part in parts" class="cv-section cv-section-{{ part.name }}" cv-section="{{ part.name }}">
-        <div ng-if="part.name == 'intro'">
-            <h1 class="cv-element"
-            cv-section-element="Id1"
-            cv-section-top="100"
-            cv-section-left="100">Introduction <small>Toujours positionner à 100px du haut et 100px de droite</small></h1>
-            <h1 class="cv-element"
-            cv-section-element="Id2"
-            cv-section-display="0.5">Afficher quand on passe les 50%</h1>
-        </div>
-        <div ng-if="part.name == 'info'">
-            <div class="cv-element"
-                 cv-section-element="Id3"
-                 cv-section-top="100">
-                <h2>
-                    <small>Toujours positionner à 100px du haut</small>
-                </h2>
-                <img ng-src="images/picture.png" alt="Picture"/>
-            </div>
-            <h1 class="cv-element"
-                cv-section-element="Id4"
-                cv-section-display="0.75">Afficher quand on passe les 75%</h1>
-        </div>
-        {{ part.name }}
-        <p>Les élements avec plusieur paramètre</p>
+    <!--<div class="test-line-display"></div>-->
+    <!--<div ng-repeat="part in parts" class="cv-section cv-section-{{ part.name }}" cv-section="{{ part.name }}">-->
 
+        <!--<div ng-if="part.name == 'intro'">-->
+            <!--<h1 class="cv-element"-->
+            <!--cv-section-element="Id1"-->
+            <!--cv-section-top="100"-->
+            <!--cv-section-left="100">Introduction <small>Toujours positionner à 100px du haut et 100px de droite</small></h1>-->
+            <!--<h1 class="cv-element cv-fade"-->
+            <!--cv-section-element="Id2"-->
+            <!--cv-section-display="{deb:0.5,end:0.75}">-->
+                <!--<span ng-if="$test" class="cv-fade">TEST {{ $test }}</span>-->
+                <!--Afficher quand on passe les 50%</h1>-->
+        <!--</div>-->
+        <!--<div ng-if="part.name == 'info'">-->
+            <!--<div class="cv-element"-->
+                 <!--cv-section-element="Id3"-->
+                 <!--cv-section-top="100">-->
+                <!--<h2>-->
+                    <!--<small>Toujours positionner à 100px du haut</small>-->
+                <!--</h2>-->
+                <!--<img ng-src="images/picture.png" alt="Picture"/>-->
+            <!--</div>-->
+            <!--<h1 class="cv-element"-->
+                <!--cv-section-element="Id4"-->
+                <!--cv-section-display="{deb:0.5,position:'bottom'}">Afficher quand on passe les 75%</h1>-->
+        <!--</div>-->
+        <!--{{ part.name }}-->
+        <!--<p>Les élements avec plusieur paramètre</p>-->
+
+    <!--</div>-->
+    <div cv-section="global" class="cv-section cv-section-global">
+        <div cv-section-element
+                class="picture-info"></div>
+        <div ng-repeat="part in parts" class="cv-section cv-section-{{ part.name }}" cv-section="{{ part.name }}">
+            <div ng-include="part.templateUrl"></div>
+        </div>
+        <div
+                cv-section-element
+                cv-section-display="{deb:0.9,position:'bottom'}"
+                class="cv-element info-help cv-fade info-help-finish">
+            <p>Voilà la présentation est finie</p>
+        </div>
     </div>
 </div>
 
-<script type="application/javascript" src="bower_components/angular/angular.min.js"></script>
-<script type="application/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
+<script type="application/javascript" src="bower_components/angular/angular.js"></script>
+<script type="application/javascript" src="bower_components/angular-animate/angular-animate.js"></script>
 
 <script type="application/javascript" src="scripts/app.js"></script>
 
@@ -56,7 +72,9 @@
 <script type="application/javascript" src="scripts/controller/RootCtrl.js"></script>
 <script type="application/javascript" src="scripts/controller/InfoCtrl.js"></script>
 
-<script type="application/javascript" src="scripts/directive/cvElement.js"></script>
+<script type="application/javascript" src="scripts/directive/cvSection.js"></script>
+<script type="application/javascript" src="scripts/directive/cvSectionElement.js"></script>
+<script type="application/javascript" src="scripts/directive/cvSectionDisplay.js"></script>
 <script type="application/javascript" src="scripts/directive/scroolTimeLine.js"></script>
 
 

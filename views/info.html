@@ -1,34 +1,70 @@
-<section cv-section="partial.name" class="cv-section cv-section-intro" ng-controller="InfoCtrl">
+<div ng-controller="InfoCtrl">
+    <section>
 
-    <img ng-src="{{ info.picture }}"
-         alt="{{ info.lastName }} {{ info.firstName }}"
-         class="test-img"
-         cv-section-element
-            >
-
-    <div class="row">
-        <div class="col-md-10">
-            <div class="row">
-                <div class="col-md-4">
-                    <img ng-src="{{ info.picture }}" alt="{{ info.lastName }} {{ info.firstName }}" class="img-thumbnail">
-                </div>
-                <div class="col-md-8">
-                    <h1>{{ info.lastName }} {{ info.firstName }} <small>{{ info.title }}</small></h1>
-                </div>
-            </div>
-
-
+        <div
+                cv-section-element
+                cv-section-display="{deb:0,end:0.2,position:'middle'}"
+                class="cv-element info-help cv-fade info-help-titre">
+            <p>Étape 1 : Un nom et une profession</p>
         </div>
-        <div class="col-md-2">
+        <h1
+                cv-section-element
+                cv-section-top="100"
+                cv-section-left="450"
+                class="cv-element info-titre cv-fade"
+                >{{ info.lastName }} {{ info.firstName }} <small>{{ info.title }}</small></h1>
+        <div
+                cv-section-element
+                cv-section-top="200"
+                cv-section-left="420"
+                cv-section-display="{deb:0.2,end:0.5,position:'middle'}"
+                class="cv-element info-help cv-fade info-help-picture">
+            <p>Étape 2 : Une belle photo</p>
+        </div>
+        <img ng-src="{{ info.picture }}"
+             alt="{{ info.lastName }} {{ info.firstName }}"
+             cv-section-element
+             cv-section-top="100"
+             cv-section-left="100"
+             cv-section-display="0.2"
+             class="cv-element info-picture cv-fade"
+                >
+
+        <div
+                cv-section-element
+                cv-section-display="{deb:0.5,end:0.8,position:'middle'}"
+                class="cv-element info-help cv-fade info-help-block">
+            <p>Étape 3 : Des informations utile</p>
+        </div>
+        <div
+            cv-section-element
+            cv-section-top="119"
+            cv-section-left="1280"
+            cv-section-display="0.5"
+                class="cv-element info-block cv-fade">
             <ul class="list-inline">
                 <li ng-repeat="link in info.links">
                     <a ng-href="{{ link.url }}" class="btn btn-info"><span class="fa {{ link.icon }}"></span></a>
                 </li>
             </ul>
-            <blockquote class="blockquote-reverse">
-                <p>{info.email}</p>
-                <p>{info.web}</p>
-            </blockquote>
         </div>
-    </div>
-</section>
+
+        <div
+                cv-section-element
+                cv-section-top="175"
+                cv-section-left="1280"
+                cv-section-display="0.5"
+                class="cv-element info-email cv-fade">
+            <p>Email : <a href="mailto:{{ info.email }}">{{ info.email }}</a></p>
+        </div>
+        <div
+                cv-section-element
+                cv-section-top="200"
+                cv-section-left="1280"
+                cv-section-display="0.5"
+                class="cv-element info-web cv-fade">
+            <p>Web : {{ info.web }}</p>
+        </div>
+
+    </section>
+</div>
