@@ -5,7 +5,7 @@
     <title>CV Lionel Meunier</title>
     <link rel="stylesheet" href="styles/css/styles.css"/>
     <link rel="stylesheet" href="styles/css/test.css"/>
-
+    <base href="http://localhost:63342/cv/"/>
     <script type="application/javascript" src="bower_components/underscore/underscore-min.js"></script>
     <script type="application/javascript"
             src="bower_components/underscore.string/dist/underscore.string.min.js"></script>
@@ -46,10 +46,21 @@
         <!--<p>Les élements avec plusieur paramètre</p>-->
 
     <!--</div>-->
-    <div cv-section="global" class="cv-section cv-section-global">
-        <div cv-section-element
-                class="picture-info"></div>
-        <div ng-repeat="part in parts" class="cv-section cv-section-{{ part.name }}" cv-section="{{ part.name }}">
+    <a href="#fin" du-smooth-scroll>Scroll it!</a>
+
+    <div cv-section="'global'" class="cv-section cv-section-global">
+        <p>Section = {{ $section}}</p>
+        <div class="player-run"
+             ng-class="addClassRun($section)"
+                >
+        </div>
+        <div class="picture-info cv-fade"
+             ng-if="displayPicture($section)"
+             ng-style="styleForPicture($section)"
+             ng-class="addClassPicture($section)"
+             translate-x="$section.windowVisibility.deb - $section.sectionPosition.deb"
+                ></div>
+        <div ng-repeat="part in parts" class="cv-section cv-section-{{ part.name }}" cv-section="part.name">
             <div ng-include="part.templateUrl"></div>
         </div>
         <div
@@ -58,6 +69,7 @@
                 class="cv-element info-help cv-fade info-help-finish">
             <p>Voilà la présentation est finie</p>
         </div>
+        <h2><a id="fin">The end</a></h2>
     </div>
 </div>
 
@@ -72,10 +84,16 @@
 <script type="application/javascript" src="scripts/controller/RootCtrl.js"></script>
 <script type="application/javascript" src="scripts/controller/InfoCtrl.js"></script>
 
+
+<script type="application/javascript" src="scripts/directive/cvElement.js"></script>
 <script type="application/javascript" src="scripts/directive/cvSection.js"></script>
 <script type="application/javascript" src="scripts/directive/cvSectionElement.js"></script>
 <script type="application/javascript" src="scripts/directive/cvSectionDisplay.js"></script>
+<script type="application/javascript" src="scripts/directive/cvSectionClass.js"></script>
 <script type="application/javascript" src="scripts/directive/scroolTimeLine.js"></script>
+
+
+<script type="application/javascript" src="scripts/service/windowVisibility.js"></script>
 
 
 </body>

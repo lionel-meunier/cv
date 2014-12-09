@@ -6,121 +6,119 @@
 
     var mod = angular.module('CvLme');
 
-    mod.controller('cvSectionCtrl', ['$element', '$window', '$animate', '$timeout', '$scope', function ($element, $window, $animate, $timeout, $scope) {
-        var visible = false;
-        var fixed = false;
-        var sectionPosition = {
+    mod.controller('cvSectionCtrl', ['$element', '$window', '$animate', '$timeout', '$scope','windowVisibility','$attrs','$parse', function ($element, $window, $animate, $timeout, $scope, windowVisibility,$attrs,$parse) {
+        var nullSectionCtrl = {};
+        var parentCtrl = $element.parent().controller('cvSection') || nullSectionCtrl;
+        this.name = $scope.$eval($attrs.cvSection);
+
+
+        this.visible = false;
+        this.fixed = false;
+        this.sectionPosition = {
             deb: 0,
             end: 0
         };
-        var windowVisibility = {
-            deb: 0,
-            middle: 0,
-            end: 0
-        };
-        var sectionVisibility = {
+        this.windowVisibility = windowVisibility;
+        this.sectionVisibility = {
             deb: 0,
             middle: 0,
             end: 0
         };
 
         this.getSectionVisible = function () {
-            return visible;
+            return this.visible;
         };
         this.getSectionFixed = function () {
-            return fixed;
+            return this.fixed;
         };
         this.getSectionPosition = function () {
-            return sectionPosition;
+            return this.sectionPosition;
         };
         this.getWindowVisibility = function () {
-            return windowVisibility;
+            return this.windowVisibility;
         };
         this.getSectionVisibility = function () {
-            return sectionVisibility;
+            return this.sectionVisibility;
         };
-        function calculWindowVisibility() {
-            windowVisibility.deb = $window.pageYOffset;
-            windowVisibility.middle = $window.pageYOffset + ($window.innerHeight / 2);
-            windowVisibility.end = $window.pageYOffset + $window.innerHeight;
-        }
+        var self = this;
+
+
 
         function calculSectionPosition() {
 
             var top = $element.offset().top;
             var height = $element.height();
-            sectionPosition.deb = top;
-            sectionPosition.end = top + height;
-            console.log($scope.id,sectionPosition);
+            self.sectionPosition.deb = top;
+            self.sectionPosition.end = top + height;
         }
 
 
         function calculVisibility() {
             calculSectionPosition();
-            calculWindowVisibility();
             //console.log('section visibility',$scope.id);
 
             //Cas 1 au dessus debut et fin avant
-            if (windowVisibility.deb < sectionPosition.deb && windowVisibility.end < sectionPosition.deb) {
-                sectionVisibility.deb = sectionVisibility.end = sectionPosition.deb;
-                fixed = false;
+            if (self.windowVisibility.deb < self.sectionPosition.deb && self.windowVisibility.end < self.sectionPosition.deb) {
+                self.sectionVisibility.deb = self.sectionVisibility.end = self.sectionPosition.deb;
+                self.fixed = false;
             }
             //Cas 2 en desous debut et fin après
-            if (windowVisibility.deb > sectionPosition.end && windowVisibility.end > sectionPosition.end) {
-                sectionVisibility.deb = sectionVisibility.end = sectionPosition.end;
-                fixed = false;
+            if (self.windowVisibility.deb > self.sectionPosition.end && self.windowVisibility.end > self.sectionPosition.end) {
+                self.sectionVisibility.deb = self.sectionVisibility.end = self.sectionPosition.end;
+                self.fixed = false;
             }
 
             //Cas 3 dedant debut et fin dedans
-            if (windowVisibility.deb > sectionPosition.deb && windowVisibility.end < sectionPosition.end) {
+            if (self.windowVisibility.deb > self.sectionPosition.deb && self.windowVisibility.end < self.sectionPosition.end) {
                 //console.log('cas3');
-                sectionVisibility.deb = windowVisibility.deb;
-                sectionVisibility.end = windowVisibility.end;
-                fixed = true;
+                self.sectionVisibility.deb = self.windowVisibility.deb;
+                self.sectionVisibility.end = self.windowVisibility.end;
+                self.fixed = true;
             }
 
             //Cas 4 debut avant et fin dedans
-            if (windowVisibility.deb < sectionPosition.deb && windowVisibility.end > sectionPosition.deb && windowVisibility.end < sectionPosition.end) {
+            if (self.windowVisibility.deb < self.sectionPosition.deb && self.windowVisibility.end > self.sectionPosition.deb && self.windowVisibility.end < self.sectionPosition.end) {
                 //console.log('cas4');
-                sectionVisibility.deb = sectionPosition.deb;
-                sectionVisibility.end = windowVisibility.end;
-                fixed = false;
+                self.sectionVisibility.deb = self.sectionPosition.deb;
+                self.sectionVisibility.end = self.windowVisibility.end;
+                self.fixed = false;
             }
 
             //Cas 5 debut dedans et fin après
-            if (windowVisibility.deb < sectionPosition.end && windowVisibility.deb > sectionPosition.deb && windowVisibility.end > sectionPosition.end) {
+            if (self.windowVisibility.deb < self.sectionPosition.end && self.windowVisibility.deb > self.sectionPosition.deb && self.windowVisibility.end > self.sectionPosition.end) {
                 //console.log('cas5');
-                sectionVisibility.deb = windowVisibility.deb;
-                sectionVisibility.end = sectionPosition.end;
-                fixed = false;
+                self.sectionVisibility.deb = self.windowVisibility.deb;
+                self.sectionVisibility.end = self.sectionPosition.end;
+                self.fixed = false;
             }
-            sectionVisibility.middle = (sectionVisibility.deb + (sectionVisibility.end - sectionVisibility.deb) / 2);
+            self.sectionVisibility.middle = (self.sectionVisibility.deb + (self.sectionVisibility.end - self.sectionVisibility.deb) / 2);
 
-            if (sectionPosition.end >= windowVisibility.middle && sectionPosition.deb <= windowVisibility.middle) {
-                visible = true;
+            if (self.sectionPosition.end >= self.windowVisibility.middle && self.sectionPosition.deb <= self.windowVisibility.middle) {
+                self.visible = true;
 
 
             } else {
-                visible = false;
+                self.visible = false;
             }
         }
 
 
         function scrollActif() {
-            calculVisibility();
+            $timeout(function () {
+                calculVisibility();
+            });
         };
 
         angular.element($window).bind("scroll", scrollActif);
         angular.element($window).bind("touchmove", scrollActif);
         angular.element($window).bind("resize", scrollActif);
         scrollActif();
+
+        $scope.$section = self;
     }]);
     mod.directive('cvSection', ['$window', '$animate', '$timeout', function ($window, $animate, $timeout) {
         return {
             restrict: 'A',
-            scope: {
-                id: '@cvSection'
-            },
             controller: 'cvSectionCtrl'
         }
     }]);

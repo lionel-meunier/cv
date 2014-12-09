@@ -43,7 +43,6 @@
             $element.css('position', 'absolute');
             //$element.css('top', self.offset.top + 'px');
             //$element.css('left', self.offset.left + 'px');
-            console.log(sectionCtrl.getSectionFixed());
             if (sectionCtrl.getSectionFixed()) {
                 $element.css('position', 'fixed');
                 $element.css('transform', '');
