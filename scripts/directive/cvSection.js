@@ -7,8 +7,7 @@
     var mod = angular.module('CvLme');
 
     mod.controller('cvSectionCtrl', ['$element', '$window', '$animate', '$timeout', '$scope','windowVisibility','$attrs','$parse', function ($element, $window, $animate, $timeout, $scope, windowVisibility,$attrs,$parse) {
-        var nullSectionCtrl = {};
-        var parentCtrl = $element.parent().controller('cvSection') || nullSectionCtrl;
+        this.$parentSection = $element.parent().controller('cvSection') || null;
         this.name = $scope.$eval($attrs.cvSection);
 
 
