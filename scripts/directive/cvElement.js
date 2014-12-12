@@ -22,7 +22,20 @@
                     return element.height();
                 },function(n){
                     scope.$element.height = n;
-                })
+                });
+
+                scope.$watch(function(){
+                    return element.width();
+                },function(n){
+                    scope.$element.width = n;
+                });
+
+                scope.$watch(function(){
+                    return element.offset();
+                },function(n){
+                    scope.$element.offset = n;
+                },true);
+
                 attr.$observe('cvElement',function(n){
                     if (!_(n).isBlank()) {
                         var exp = n +' = $element';

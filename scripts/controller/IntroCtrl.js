@@ -15,21 +15,22 @@
             if (_.isUndefined(section)) {
                 return;
             }
+            console.log(element);
             var style = {
                 'background-color' : '#fff',
                 'min-height' : windowVisibility.height,
-                'min-width' : element.width
+                'min-width' : element.width,
+                'max-width' : '100%'
             };
             if(section.fixed){
                 var styleFixed = {
                     top : 0,
                     left : element.offset.left,
-                    position: 'fixed'
+                    position: 'fixed',
+                    'min-width' : element.width
                 };
                 _.extend(style,styleFixed);
             } else if(section.sectionPosition.deb < windowVisibility.deb){
-                var top = windowVisibility.deb - section.sectionPosition.deb;
-                console.log(windowVisibility.deb,section.sectionPosition.deb,windowVisibility.height);
                 var styleFixed = {
                     bottom : 0,
                     left : 15,
