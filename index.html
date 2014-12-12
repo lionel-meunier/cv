@@ -13,7 +13,7 @@
     <script type="application/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
 
 </head>
-<body ng-app="CvLme" ng-controller="RootCtrl">
+<body ng-app="CvLme" ng-controller="RootCtrl" ng-style="bodyStyle()">
 <div>
     <!--<div class="test-line-display"></div>-->
     <!--<div ng-repeat="part in parts" class="cv-section cv-section-{{ part.name }}" cv-section="{{ part.name }}">-->
@@ -46,30 +46,13 @@
         <!--<p>Les élements avec plusieur paramètre</p>-->
 
     <!--</div>-->
-    <a href="#fin" du-smooth-scroll>Scroll it!</a>
-
     <div cv-section="'global'" class="cv-section cv-section-global">
-        <p>Section = {{ $section}}</p>
-        <div class="player-run"
-             ng-class="addClassRun($section)"
-                >
-        </div>
-        <div class="picture-info cv-fade"
-             ng-if="displayPicture($section)"
-             ng-style="styleForPicture($section)"
-             ng-class="addClassPicture($section)"
-             translate-x="$section.windowVisibility.deb - $section.sectionPosition.deb"
-                ></div>
-        <div ng-repeat="part in parts" class="cv-section cv-section-{{ part.name }}" cv-section="part.name">
+        <div ng-repeat="part in parts" class="cv-section cv-section-{{ part.name }}" cv-section="part.name" ng-style="styleSection(section)">
             <div ng-include="part.templateUrl"></div>
         </div>
-        <div
-                cv-section-element
-                cv-section-display="{deb:0.9,position:'bottom'}"
-                class="cv-element info-help cv-fade info-help-finish">
-            <p>Voilà la présentation est finie</p>
-        </div>
-        <h2><a id="fin">The end</a></h2>
+    </div>
+    <div class="loading" ng-if="data.loading">
+        <div ng-include="'views/loading.html'"></div>
     </div>
 </div>
 
@@ -83,6 +66,7 @@
 
 <script type="application/javascript" src="scripts/controller/RootCtrl.js"></script>
 <script type="application/javascript" src="scripts/controller/InfoCtrl.js"></script>
+<script type="application/javascript" src="scripts/controller/IntroCtrl.js"></script>
 
 
 <script type="application/javascript" src="scripts/directive/cvElement.js"></script>

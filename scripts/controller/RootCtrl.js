@@ -6,8 +6,31 @@
 
     var mod = angular.module('CvLme');
 
-    mod.controller('RootCtrl', ['$scope', 'parts', '$location', '$anchorScroll','$timeout', function ($scope, parts, $location, $anchorScroll,$timeout) {
+    mod.controller('RootCtrl', ['$scope', 'parts', '$location', '$anchorScroll','$timeout','windowVisibility', function ($scope, parts, $location, $anchorScroll,$timeout,windowVisibility) {
+
+
+        $scope.data = {
+            loading : true
+        };
+
+
+        $scope.styleSection = function(){
+            return {
+                'min-height' : windowVisibility.height
+            };
+        };
+
+        $scope.bodyStyle = function(){
+
+        };
+
+        $timeout(function(){
+          $scope.data.loading = false;
+        },1000);
+
+
         $scope.parts = parts;
+
 
         $scope.scrollTo = function (hash) {
             $location.hash(hash);

@@ -7,19 +7,18 @@
     var mod = angular.module('CvLme');
 
 
-    //mod.directive('translateX', ['$window', '$animate', '$timeout', function ($window, $animate, $timeout) {
-    //    return {
-    //        restrict: 'A',
-    //        link : function(scope,element,attr){
-    //            scope.$watch(attr.translateX,function(n){
-    //                console.log(n);
-    //                if(!_.isUndefined(n)){
-    //                    //element.css('transform', 'translateY(' + n + 'px)');
-    //                }
-    //
-    //            });
-    //        }
-    //    }
-    //}]);
+    mod.directive('cvElement', [function () {
+        return {
+            restrict: 'A',
+            link : function(scope,element,attr){
+
+                scope.$element = {
+                    offset : element.offset(),
+                    height : element.height(),
+                    width : element.width()
+                };
+            }
+        }
+    }]);
 
 })();

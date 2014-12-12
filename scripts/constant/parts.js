@@ -8,6 +8,10 @@
 
     mod.constant('parts',[
         {
+            name : 'begin',
+            templateUrl : 'views/begin.html'
+        },
+        {
             name : 'intro',
             templateUrl : 'views/intro.html'
         },
