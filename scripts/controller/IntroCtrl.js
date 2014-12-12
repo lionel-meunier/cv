@@ -8,6 +8,8 @@
 
     mod.controller('IntroCtrl',['$scope', 'windowVisibility',function($scope, windowVisibility){
         $scope.heightWindowVisibility = windowVisibility.height;
+        $scope.data = {
+        };
 
         $scope.stylePage = function(section,element){
             if (_.isUndefined(section)) {
