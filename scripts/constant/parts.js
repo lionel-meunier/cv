@@ -8,29 +8,37 @@
 
     mod.constant('parts',[
         {
-            name : 'begin',
-            templateUrl : 'views/begin.html'
+            name : 'presentation',
+            templateUrl : 'views/presentation.html'
         },
         {
-            name : 'intro',
-            templateUrl : 'views/intro.html'
+            name : 'careers',
+            templateUrl : 'views/careers.html'
         },
         {
-            name : 'info',
-            templateUrl : 'views/info.html'
+            name : 'education',
+            templateUrl : 'views/education.html'
         },
-        //{
-        //    name : 'xp',
-        //    templateUrl : 'views/xp.html'
-        //},
-        //{
-        //    name : 'tech',
-        //    templateUrl : 'views/tech.html'
-        //},
-        //{
-        //    name : 'school',
-        //    templateUrl : 'views/school.html'
-        //}
+        {
+            name : 'training',
+            templateUrl : 'views/training.html'
+        },
+        {
+            children: [
+                {
+                    name: 'front',
+                    templateUrl: 'views/competence/front.html'
+                },
+                {
+                    name: 'back',
+                    templateUrl: 'views/competence/back.html'
+                },
+                {
+                    name: 'other',
+                    templateUrl: 'views/competence/other.html'
+                }
+            ]
+        }
     ]);
 
 })();

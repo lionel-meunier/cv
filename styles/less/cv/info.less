@@ -1,0 +1,37 @@
+
+@info-border-color : #f00;
+@info-border-inner-color : #ccc;
+@info-icon-color : #c00;
+@info-width : 250px;
+@info-max-height : 50%;
+@info-line-height : 30px;
+
+
+.block-info {
+  border-top : 1px solid @info-border-color;
+  border-right : 1px solid @info-border-color;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width : @info-width;
+  overflow: hidden;
+  max-height: @info-max-height;
+  z-index:30;
+  border-top-right-radius: 5px;
+  & > div {
+    font-size : 14px;
+    border-top : 1px solid @info-border-inner-color;
+    height: @info-line-height;
+    line-height: @info-line-height;
+    &:first-child {
+      border-top : 0;
+    }
+    .fa {
+      color : @info-icon-color;
+    }
+  }
+  img {
+    max-width : 16px;
+    max-height : 16px;
+  }
+}

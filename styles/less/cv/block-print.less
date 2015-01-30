@@ -1,0 +1,52 @@
+
+.block-print {
+  margin-bottom: 100px;
+  .section {
+    margin : 40px 0;
+    .title-ligne {
+      border-bottom: 1px solid @color-primary;
+      color : @color-default;
+      margin-bottom: 40px;
+    }
+    .row {
+      margin : 10px 0;
+    }
+    .panel-heading h3 {
+      margin : 0;
+      text-align: center;
+    }
+    .panel-body {
+      min-height: 400px;
+    }
+  }
+  a,
+  a:visited {
+    color : @color-primary;
+  }
+  a:hover,
+  a:active {
+    color : darken(@color-primary,20%);
+  }
+
+  .info-general {
+    text-align: right;
+    .name {
+      display : block;
+      font-size : 54px;
+    }
+    .title {
+      display : block;
+      font-size : 35px;
+    }
+  }
+}
+
+.block-print {
+  .education {
+    .timeline-wrap {
+      .time-desc {
+        line-height: @timeline-height-ligne;
+      }
+    }
+  }
+}

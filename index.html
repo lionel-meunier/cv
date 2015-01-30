@@ -3,81 +3,62 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>CV Lionel Meunier</title>
+    <link rel="stylesheet" href="bower_components/reveal.js/css/reveal.css"/>
+    <!--<link rel="stylesheet" href="bower_components/reveal.js/css/theme/black.css"/>-->
     <link rel="stylesheet" href="styles/css/styles.css"/>
     <link rel="stylesheet" href="styles/css/test.css"/>
     <base href="http://localhost:63342/cv/"/>
-    <script type="application/javascript" src="bower_components/underscore/underscore-min.js"></script>
-    <script type="application/javascript"
+    <script type="text/javascript" src="bower_components/underscore/underscore-min.js"></script>
+    <script type="text/javascript"
             src="bower_components/underscore.string/dist/underscore.string.min.js"></script>
-    <script type="application/javascript" src="bower_components/moment/min/moment.min.js"></script>
-    <script type="application/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
 
 </head>
-<body ng-app="CvLme" ng-controller="RootCtrl" ng-style="bodyStyle()">
-<div>
-    <!--<div class="test-line-display"></div>-->
-    <!--<div ng-repeat="part in parts" class="cv-section cv-section-{{ part.name }}" cv-section="{{ part.name }}">-->
+<body ng-app="CvLme" ng-controller="RootCtrl">
+<div class="reveal"
+     leap-swipe-left="left()"
+     leap-swipe-right="right()"
+     leap-swipe-up="down()"
+     leap-swipe-down="up()">
 
-        <!--<div ng-if="part.name == 'intro'">-->
-            <!--<h1 class="cv-element"-->
-            <!--cv-section-element="Id1"-->
-            <!--cv-section-top="100"-->
-            <!--cv-section-left="100">Introduction <small>Toujours positionner à 100px du haut et 100px de droite</small></h1>-->
-            <!--<h1 class="cv-element cv-fade"-->
-            <!--cv-section-element="Id2"-->
-            <!--cv-section-display="{deb:0.5,end:0.75}">-->
-                <!--<span ng-if="$test" class="cv-fade">TEST {{ $test }}</span>-->
-                <!--Afficher quand on passe les 50%</h1>-->
-        <!--</div>-->
-        <!--<div ng-if="part.name == 'info'">-->
-            <!--<div class="cv-element"-->
-                 <!--cv-section-element="Id3"-->
-                 <!--cv-section-top="100">-->
-                <!--<h2>-->
-                    <!--<small>Toujours positionner à 100px du haut</small>-->
-                <!--</h2>-->
-                <!--<img ng-src="images/picture.png" alt="Picture"/>-->
-            <!--</div>-->
-            <!--<h1 class="cv-element"-->
-                <!--cv-section-element="Id4"-->
-                <!--cv-section-display="{deb:0.5,position:'bottom'}">Afficher quand on passe les 75%</h1>-->
-        <!--</div>-->
-        <!--{{ part.name }}-->
-        <!--<p>Les élements avec plusieur paramètre</p>-->
-
-    <!--</div>-->
-    <div cv-section="'global'" class="cv-section cv-section-global">
-        <div ng-repeat="part in parts" class="cv-section cv-section-{{ part.name }}" cv-section="part.name" ng-style="styleSection(section)">
-            <div ng-include="part.templateUrl"></div>
-        </div>
+    <div class="slides">
+        <section>
+            <h3>Bienvenu sur ma présentation</h3>
+            <img ng-src="{{ info.general.picture }}" alt="{{ info.general.firstName }} {{ info.general.lastName }}"/>
+            <p>{{ info.general.firstName }} {{ info.general.lastName }}</p>
+            <p>{{ info.general.title }}</p>
+        </section>
+        <section ng-repeat="section in sections">
+            <section ng-if="section.children" ng-repeat="children in section.children">
+                <div ng-include="children.templateUrl"></div>
+            </section>
+            <div ng-include="section.templateUrl"></div>
+        </section>
     </div>
-    <div class="loading" ng-if="data.loading">
-        <div ng-include="'views/loading.html'"></div>
-    </div>
+    <div class="slide-number">Mettre le numéro du slide</div>
 </div>
 
-<script type="application/javascript" src="bower_components/angular/angular.js"></script>
-<script type="application/javascript" src="bower_components/angular-animate/angular-animate.js"></script>
+<div ng-include="'views/info.html'"></div>
 
-<script type="application/javascript" src="scripts/app.js"></script>
-
-<script type="application/javascript" src="scripts/constant/parts.js"></script>
-<script type="application/javascript" src="scripts/constant/info.js"></script>
-
-<script type="application/javascript" src="scripts/controller/RootCtrl.js"></script>
-<script type="application/javascript" src="scripts/controller/InfoCtrl.js"></script>
-<script type="application/javascript" src="scripts/controller/IntroCtrl.js"></script>
+<div ng-include="'views/print.html'"></div>
 
 
-<script type="application/javascript" src="scripts/directive/cvElement.js"></script>
-<script type="application/javascript" src="scripts/directive/cvSection.js"></script>
-<script type="application/javascript" src="scripts/directive/cvSectionElement.js"></script>
-<script type="application/javascript" src="scripts/directive/cvSectionDisplay.js"></script>
-<script type="application/javascript" src="scripts/directive/cvSectionClass.js"></script>
-<script type="application/javascript" src="scripts/directive/scroolTimeLine.js"></script>
+<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="bower_components/angular-animate/angular-animate.js"></script>
+<script type="text/javascript" src="bower_components/headjs/dist/1.0.0/head.js"></script>
+<script type="text/javascript" src="bower_components/reveal.js/js/reveal.js"></script>
 
 
-<script type="application/javascript" src="scripts/service/windowVisibility.js"></script>
+<script type="text/javascript" src="scripts/app.js"></script>
+
+<script type="text/javascript" src="scripts/constant/parts.js"></script>
+<script type="text/javascript" src="scripts/constant/info.js"></script>
+
+<script type="text/javascript" src="scripts/controller/RootCtrl.js"></script>
+
+
+<script type="text/javascript" src="scripts/service/reveal.js"></script>
 
 
 </body>

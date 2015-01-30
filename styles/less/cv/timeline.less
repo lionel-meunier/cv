@@ -1,23 +1,62 @@
 
-.timeline {
-  position: fixed;
-  height: 50px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #000;
-  .timeline-cursor {
-    position: absolute;
-    left: 0;
-    width: 0;
-    height: 0;
-    border: 10px solid transparent;
-    border-top-color : #ccc;
-    transform: translate(-10px,0);
+@timeline-height-ligne : 45px;
+@timeline-color-sep : #000;
+@timeline-sep-width : 5px;
+@timeline-bg-primary : lighten(@color-primary,20%);
+@timeline-bg-second : @color-second;
+@timeline-radius : 5px;
+
+
+.timeline-wrap {
+  .time-sep {
+    height : @timeline-height-ligne;
+    width : 0;
+    border-left : @timeline-sep-width dotted @timeline-color-sep;
+    padding-top : (@timeline-height-ligne/2)-@burst-height/2;
+    margin : 0 auto;
+    .burst-12 {
+      margin-left : -(@burst-width/2 + @timeline-sep-width/2);
+    }
   }
-  .timeline-bar {
-    width: 0;
-    height: 50px;
-    background-color: #f00;
+  .row {
+    .time-date {
+      border-radius: @timeline-radius;
+      font-weight: bold;
+      text-align: center;
+      height: @timeline-height-ligne;
+      line-height: @timeline-height-ligne;
+      background-color : @timeline-bg-second;
+      .date-deb,
+      .date-end {
+        padding : 5px;
+      }
+      .date-deb {
+        padding-right: 0;
+      }
+      .date-deb:after {
+        content : "-";
+        padding-left: 5px;
+      }
+    }
+    .time-title {
+      border-radius: @timeline-radius;
+      padding-left : 10px;
+      height: @timeline-height-ligne;
+      line-height: @timeline-height-ligne;
+      color : #fff;
+      background-color : @timeline-bg-primary;
+      font-weight: bold;
+    }
+    .time-desc {
+      padding-left : 10px;
+      border-radius: @timeline-radius;
+      height: @timeline-height-ligne;
+      line-height: @timeline-height-ligne/2;
+      background-color : @timeline-bg-second;
+      a {
+        display: block;
+      }
+    }
+
   }
 }

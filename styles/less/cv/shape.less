@@ -1,0 +1,90 @@
+@diamond-width : 80px;
+@diamond-height : 80px;
+@diamond-color : @color-primary;
+@diamond-icon-color : #fff;
+
+.diamond {
+  color: @diamond-icon-color;
+  display: inline-block;
+  width: @diamond-width;
+  height: @diamond-height;
+  position: relative;
+  margin-top: -@diamond-width/4;
+  margin-bottom: -@diamond-width/4;
+  .fa-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: @diamond-width;
+    height: @diamond-height*3/4;
+    line-height: @diamond-height*3/4;
+    text-align: center;
+    font-size:  min(@diamond-width/2,@diamond-height/2);
+  }
+  .cut-diamond {
+    display: inline-block;
+    border-style: solid;
+    border-color: transparent transparent @diamond-color transparent;
+    border-width: 0 @diamond-width/4 @diamond-height/4 @diamond-width/4;
+    height: 0;
+    width: @diamond-width;
+    position: relative;
+    margin-bottom: @diamond-height/2;
+    &:after {
+      content: "";
+      position: absolute;
+      top: @diamond-height/4;
+      left: -@diamond-width/4;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-color: @diamond-color transparent transparent transparent;
+      border-width: @diamond-height*3/4 @diamond-width/2 0 @diamond-width/2;
+    }
+  }
+  &.inverse {
+    .cut-diamond {
+      transform: rotate(180deg);
+      margin-top: @diamond-height*3/4;
+      margin-bottom: -@diamond-height/4;
+    }
+    .fa-content {
+      top : @diamond-height/4;
+    }
+  }
+}
+
+
+@burst-width : 20px;
+@burst-height : 20px;
+@burst-color : @color-primary;
+
+.burst-12 {
+  background: @burst-color;
+  width: @burst-width;
+  height: @burst-height;
+  position: relative;
+  text-align: center;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: @burst-width;
+    height: @burst-height;
+    background: @burst-color;
+  }
+  &:before {
+    -webkit-transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    -o-transform: rotate(30deg);
+  }
+  &:after {
+    -webkit-transform: rotate(60deg);
+    -moz-transform: rotate(60deg);
+    -ms-transform: rotate(60deg);
+    -o-transform: rotate(60deg);
+  }
+}
