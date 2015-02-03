@@ -9,6 +9,7 @@
     height: @xp-height-ligne;
     line-height: @xp-height-ligne;
     background-color : @timeline-bg-second;
+    .text-overflow-ellipsis();
   }
   .xp-title {
     border-radius: @timeline-radius;
@@ -17,6 +18,7 @@
     color : #fff;
     background-color : @timeline-bg-primary;
     .name {
+      .text-overflow-ellipsis();
       display : block;
       font-weight: bold;
       font-size : @xp-height-ligne/2;
@@ -24,6 +26,8 @@
       line-height: @xp-height-ligne/2;
     }
     .title {
+      display : block;
+      .text-overflow-ellipsis();
       font-size : @xp-height-ligne/4;
       height: @xp-height-ligne/2;
       line-height: @xp-height-ligne/2;
@@ -41,6 +45,7 @@
       font-size : @xp-height-ligne/4;
       height: @xp-height-ligne/2;
       line-height: @xp-height-ligne/2;
+      .text-overflow-ellipsis();
     }
     .type {
       font-weight: bold;

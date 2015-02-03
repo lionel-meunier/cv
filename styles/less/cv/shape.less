@@ -1,68 +1,72 @@
-@diamond-width : 80px;
-@diamond-height : 80px;
-@diamond-color : @color-primary;
-@diamond-icon-color : #fff;
 
-.diamond {
-  color: @diamond-icon-color;
+.diamond(@width;@height;@color;@icon-color) {
+  color: @icon-color !important;
   display: inline-block;
-  width: @diamond-width;
-  height: @diamond-height;
+  width: @width;
+  height: @height;
   position: relative;
-  margin-top: -@diamond-width/4;
-  margin-bottom: -@diamond-width/4;
+  margin-top: -@width/4;
+  margin-bottom: -@width/4;
   .fa-content {
     position: absolute;
     top: 0;
     left: 0;
-    width: @diamond-width;
-    height: @diamond-height*3/4;
-    line-height: @diamond-height*3/4;
+    width: @width;
+    height: @height*3/4;
+    line-height: @height*3/4;
     text-align: center;
-    font-size:  min(@diamond-width/2,@diamond-height/2);
+    font-size:  min(@width/2,@height/2);
+    > .fa:before {
+      color: @icon-color !important;
+    }
   }
   .cut-diamond {
     display: inline-block;
     border-style: solid;
-    border-color: transparent transparent @diamond-color transparent;
-    border-width: 0 @diamond-width/4 @diamond-height/4 @diamond-width/4;
+    border-color: transparent transparent @color transparent;
+    border-width: 0 @width/4 @height/4 @width/4;
     height: 0;
-    width: @diamond-width;
+    width: @width;
     position: relative;
-    margin-bottom: @diamond-height/2;
+    margin-bottom: @height/2;
     &:after {
       content: "";
       position: absolute;
-      top: @diamond-height/4;
-      left: -@diamond-width/4;
+      top: @height/4;
+      left: -@width/4;
       width: 0;
       height: 0;
       border-style: solid;
-      border-color: @diamond-color transparent transparent transparent;
-      border-width: @diamond-height*3/4 @diamond-width/2 0 @diamond-width/2;
+      border-color: @color transparent transparent transparent;
+      border-width: @height*3/4 @width/2 0 @width/2;
     }
   }
   &.inverse {
     .cut-diamond {
       transform: rotate(180deg);
-      margin-top: @diamond-height*3/4;
-      margin-bottom: -@diamond-height/4;
+      margin-top: @height*3/4;
+      margin-bottom: -@height/4;
     }
     .fa-content {
-      top : @diamond-height/4;
+      top : @height/4;
     }
   }
 }
 
+@diamond-width : 80px;
+@diamond-height : 80px;
+@diamond-color : @color-primary;
+@diamond-icon-color : #fff;
+.diamond {
+  .diamond(@diamond-width;@diamond-height;@diamond-color;@diamond-icon-color);
+}
 
-@burst-width : 20px;
-@burst-height : 20px;
-@burst-color : @color-primary;
 
-.burst-12 {
-  background: @burst-color;
-  width: @burst-width;
-  height: @burst-height;
+
+.burst-12(@width;@height;@color) {
+  background: @color !important;
+  width: @width;
+  height: @height;
   position: relative;
   text-align: center;
   &:before,
@@ -71,9 +75,9 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: @burst-width;
-    height: @burst-height;
-    background: @burst-color;
+    width: @width;
+    height: @height;
+    background: @color !important;
   }
   &:before {
     -webkit-transform: rotate(30deg);
@@ -87,4 +91,12 @@
     -ms-transform: rotate(60deg);
     -o-transform: rotate(60deg);
   }
+}
+
+@burst-width : 20px;
+@burst-height : 20px;
+@burst-color : @color-primary;
+
+.burst-12 {
+  .burst-12(@burst-width;@burst-height;@burst-color);
 }

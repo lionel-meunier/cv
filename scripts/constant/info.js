@@ -10,10 +10,10 @@
         general : {
             lastName : 'Meunier',
             firstName : 'Lionel',
-            email : 'crypted',
+            email : 'lionel.meunier@outlook.fr',
             web : 'urlcv',
             phone : 'urlcv',
-            picture : 'images/picture.png',
+            picture : 'images/lme-clair.JPG',
             title : 'Développeur FrontEnd',
             links : [
                 {

@@ -1,212 +1,242 @@
 <div class="block-print container">
     <div class="row">
-        <div class="col-xs-3">
-            <img class="img-circle img-responsive" ng-src="{{ info.general.picture }}" alt="{{ info.general.firstName }} {{ info.general.lastName }}"/>
-        </div>
-        <div class="col-xs-9">
-            <div class="info-general">
-                <span class="name">{{ info.general.firstName }} {{ info.general.lastName }}</span>
-                <span class="title">{{ info.general.title }}</span>
-            </div>
+        <div class="info-general">
+            <img class="img-circle img-responsive" ng-src="{{ info.general.picture }}"
+                 alt="{{ info.general.firstName }} {{ info.general.lastName }}"/>
+            <span class="name">{{ info.general.firstName }} {{ info.general.lastName }}</span>
+            <span class="title">{{ info.general.title }}</span>
         </div>
     </div>
     <div class="row">
-    <div class="col-xs-12">
-        <div class="xp section">
-            <h2 class="title-ligne">
-            <span class="diamond">
-                <span class="cut-diamond"></span>
-                <span class="fa-content">
-                <span class="fa fa-briefcase"></span>
-                </span>
-            </span>
-                <span class="title">Expériences Professionnelles</span>
-            </h2>
-            <div class="row" ng-repeat="xp in info.careers">
-                <div class="col-xs-12 col-sm-2">
-                    <div class="xp-date">
-                        {{ xp.date | date : 'yyyy/MM/dd' }}
+        <div class="col-xs-12">
+            <div class="xp section">
+                <h2 class="title-ligne">
+                    <span class="diamond">
+                        <span class="cut-diamond"></span>
+                        <span class="fa-content">
+                        <span class="fa fa-briefcase"></span>
+                        </span>
+                    </span>
+                    <span class="title">Expériences Professionnelles</span>
+                </h2>
+
+                <div class="row" ng-repeat="xp in info.careers">
+                    <div class="col-xs-12 col-sm-2">
+                        <div class="xp-date">
+                            {{ xp.date | date : 'yyyy/MM/dd' }}
+                        </div>
                     </div>
-                </div>
-                <div class="col-xs-4">
-                    <div class="xp-title">
+                    <div class="col-xs-4">
+                        <div class="xp-title">
                         <span class="name">
                             {{ xp.name }}
                         </span>
                         <span class="title">
                             {{ xp.title }}
                         </span>
+                        </div>
                     </div>
-                </div>
-                <div class="col-xs-8 col-sm-6">
-                    <div class="xp-desc">
+                    <div class="col-xs-8 col-sm-6">
+                        <div class="xp-desc">
                         <span class="mission">
                             {{ xp.mission }}
                         </span>
                         <span class="type">
                             {{ xp.type }}
                         </span>
+                        </div>
                     </div>
                 </div>
+                <div class="clearfix"></div>
             </div>
-            <div class="clearfix"></div>
-        </div>
-        <div class="training section">
-            <h2 class="title-ligne">
+            <div class="training section">
+                <h2 class="title-ligne">
             <span class="diamond">
                 <span class="cut-diamond"></span>
                 <span class="fa-content">
                 <span class="fa fa-book"></span>
                 </span>
             </span>
-                <span class="title">Formations Professionnelles</span>
-            </h2>
-            <div class="timeline-wrap">
-                <div class="row" ng-repeat="item in info.training">
-                    <div class="col-xs-12 col-sm-2">
-                        <div class="time-date">
-                            <span class="date">{{ item.date | date : 'yyyy/MM' }}</span>
+                    <span class="title">Formations Professionnelles</span>
+                </h2>
+
+                <div class="timeline-wrap">
+                    <div class="row" ng-repeat="item in info.training">
+                        <div class="col-xs-12 col-sm-2">
+                            <div class="time-date">
+                                <span class="date">{{ item.date | date : 'yyyy/MM' }}</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-sm-1 hidden-xs">
-                        <div class="time-sep">
-                            <div class="burst-12"></div>
+                        <div class="col-sm-1 hidden-xs">
+                            <div class="time-sep">
+                                <div class="burst-12"></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-xs-5">
-                        <div class="time-title">
-                            <span class="title">{{ item.title }}</span>
+                        <div class="col-xs-5">
+                            <div class="time-title">
+                                <span class="title">{{ item.title }}</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-xs-7 col-sm-4">
-                        <div class="time-desc">
-                            <div class="training-formateur">
-                                <a ng-href="{{ item.formateur.url }}" class="name">{{ item.formateur.name }}</a>
-                                <a ng-href="{{ item.formateur.societe.url }}" class="societe">{{ item.formateur.societe.name }}</a>
+                        <div class="col-xs-7 col-sm-4">
+                            <div class="time-desc">
+                                <div class="training-formateur">
+                                    <a ng-href="{{ item.formateur.url }}" class="name">{{ item.formateur.name }}</a>
+                                    <a ng-href="{{ item.formateur.societe.url }}" class="societe">{{
+                                        item.formateur.societe.name }}</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="education section">
-            <h2 class="title-ligne">
+            <div class="education section">
+                <h2 class="title-ligne">
             <span class="diamond">
                 <span class="cut-diamond"></span>
                 <span class="fa-content">
                 <span class="fa fa-graduation-cap"></span>
                 </span>
             </span>
-                <span class="title">Formations Personnel</span>
-            </h2>
-            <div class="timeline-wrap">
-                <div class="row" ng-repeat="item in info.education">
-                    <div class="col-xs-12 col-sm-2">
-                        <div class="time-date">
-                            <span class="date-deb">{{ item.dateBegin | date : 'yyyy/MM' }}</span>
-                            <span class="date-end">{{ item.dateEnd | date : 'yyyy/MM' }}</span>
+                    <span class="title">Formations Personnel</span>
+                </h2>
+
+                <div class="timeline-wrap">
+                    <div class="row" ng-repeat="item in info.education">
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+                            <div class="time-date">
+                                <span class="date-deb">{{ item.dateBegin | date : 'yyyy/MM' }}</span>
+                                <span class="date-end">{{ item.dateEnd | date : 'yyyy/MM' }}</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-sm-1 hidden-xs">
-                        <div class="time-sep">
-                            <div class="burst-12"></div>
+                        <div class="col-sm-1 hidden-sm hidden-xs">
+                            <div class="time-sep">
+                                <div class="burst-12"></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-xs-7 col-sm-5">
-                        <div class="time-title">
-                            <span class="title">{{ item.title }}</span>
+                        <div class="col-xs-7 col-sm-5 col-md-4 col-lg-5">
+                            <div class="time-title">
+                                <span class="title">{{ item.title }}</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-xs-5 col-sm-4">
-                        <div class="time-desc">
-                            <span class="localisation">{{ item.localisation }}</span>
+                        <div class="col-xs-5 col-sm-4 col-md-4">
+                            <div class="time-desc">
+                                <span class="localisation">{{ item.localisation }}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="competence section">
-            <h2 class="title-ligne">
+            <div class="competence section">
+                <h2 class="title-ligne">
             <span class="diamond">
                 <span class="cut-diamond"></span>
                 <span class="fa-content">
                 <span class="fa fa-cog"></span>
                 </span>
             </span>
-                <span class="title">Compétences</span>
-            </h2>
-            <div class="row">
-                <div class="col-xs-4">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3>Frontend</h3>
-                        </div>
-                        <div class="panel-body">
-                            <h4>HTML</h4>
-                            <div ng-repeat="o in info.competence.front.html">
-                                <span class="fa " ng-class="o.logo" ng-if="o.logo"></span>
-                                <span class="title">{{ o.title }}</span>
+                    <span class="title">Compétences</span>
+                </h2>
+
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3>Frontend</h3>
                             </div>
-                            <h4>CSS</h4>
-                            <div ng-repeat="o in info.competence.front.css">
-                                <span class="fa " ng-class="o.logo" ng-if="o.logo"></span>
-                                <span class="title">{{ o.title }}</span>
-                            </div>
-                            <h4>Javascript</h4>
-                            <div ng-repeat="o in info.competence.front.javascript">
-                                <span class="fa " ng-class="o.logo" ng-if="o.logo"></span>
-                                <span class="title">{{ o.title }}</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-4">
-                    <div class="panel panel-primary panel-backend">
-                        <div class="panel-heading">
-                            <h3>Backend</h3>
-                        </div>
-                        <div class="panel-body">
-                            <h4>Php</h4>
-                            <div ng-repeat="o in info.competence.backend.php">
-                                <span class="fa " ng-class="o.logo" ng-if="o.logo"></span>
-                                <span class="title">{{ o.title }}</span>
-                            </div>
-                            <h4>Java</h4>
-                            <div ng-repeat="o in info.competence.backend.java">
-                                <span class="fa " ng-class="o.logo" ng-if="o.logo"></span>
-                                <span class="title">{{ o.title }}</span>
-                            </div>
-                            <h4>NodeJs</h4>
-                            <div ng-repeat="o in info.competence.backend.nodejs">
-                                <span class="fa " ng-class="o.logo" ng-if="o.logo"></span>
-                                <span class="title">{{ o.title }}</span>
-                            </div>
-                            <h4>Mobile</h4>
-                            <div ng-repeat="o in info.competence.backend.mobile">
-                                <span class="fa " ng-class="o.logo" ng-if="o.logo"></span>
-                                <span class="title">{{ o.title }}</span>
+                            <div class="panel-body">
+                                <h4>HTML</h4>
+
+                                <div ng-repeat="o in info.competence.front.html">
+                                    <span class="fa " ng-class="o.logo" ng-if="o.logo"></span>
+                                    <span class="title">{{ o.title }}</span>
+                                </div>
+                                <h4>CSS</h4>
+
+                                <div ng-repeat="o in info.competence.front.css">
+                                    <span class="fa " ng-class="o.logo" ng-if="o.logo"></span>
+                                    <span class="title">{{ o.title }}</span>
+                                </div>
+                                <h4>Javascript</h4>
+
+                                <div ng-repeat="o in info.competence.front.javascript">
+                                    <span class="fa " ng-class="o.logo" ng-if="o.logo"></span>
+                                    <span class="title">{{ o.title }}</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xs-4">
-                    <div class="panel panel-primary panel-other">
-                        <div class="panel-heading">
-                            <h3>Autres</h3>
+                    <div class="col-xs-4">
+                        <div class="panel panel-primary panel-backend">
+                            <div class="panel-heading">
+                                <h3>Backend</h3>
+                            </div>
+                            <div class="panel-body">
+                                <h4>Php</h4>
+
+                                <div ng-repeat="o in info.competence.backend.php">
+                                    <span class="fa " ng-class="o.logo" ng-if="o.logo"></span>
+                                    <span class="title">{{ o.title }}</span>
+                                </div>
+                                <h4>Java</h4>
+
+                                <div ng-repeat="o in info.competence.backend.java">
+                                    <span class="fa " ng-class="o.logo" ng-if="o.logo"></span>
+                                    <span class="title">{{ o.title }}</span>
+                                </div>
+                                <h4>NodeJs</h4>
+
+                                <div ng-repeat="o in info.competence.backend.nodejs">
+                                    <span class="fa " ng-class="o.logo" ng-if="o.logo"></span>
+                                    <span class="title">{{ o.title }}</span>
+                                </div>
+                                <h4>Mobile</h4>
+
+                                <div ng-repeat="o in info.competence.backend.mobile">
+                                    <span class="fa " ng-class="o.logo" ng-if="o.logo"></span>
+                                    <span class="title">{{ o.title }}</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="panel-body">
-                            <div ng-repeat="o in info.competence.other">
-                                <h4 class="title">{{ o.title }}</h4>
-                                <span class="desc">{{ o.desc }}</span>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="panel panel-primary panel-other">
+                            <div class="panel-heading">
+                                <h3>Autres</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div ng-repeat="o in info.competence.other">
+                                    <h4 class="title">{{ o.title }}</h4>
+                                    <span class="desc">{{ o.desc }}</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
-
     </div>
+    <div class="footer">
+        <div class="row">
+            <div class="col-xs-4">
+                <a ng-href="mailto:{{ info.general.email }}">
+                    <i>@</i>
+                    {{ info.general.email }}
+                </a>
+            </div>
+            <div class="col-xs-4">
+                <span>
+                    <i class="icon fa fa-phone"></i>
+                    {{ info.general.phone }}
+                </span>
+            </div>
+            <div class="col-xs-4">
+                <a ng-href="{{ info.general.web }}">
+                    <i class="fa fa-globe"></i>
+                    {{ info.general.web }}
+                </a>
+            </div>
+        </div>
     </div>
-
 
 </div>

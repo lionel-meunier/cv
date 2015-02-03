@@ -26,6 +26,7 @@
       height: @timeline-height-ligne;
       line-height: @timeline-height-ligne;
       background-color : @timeline-bg-second;
+      .text-overflow-ellipsis();
       .date-deb,
       .date-end {
         padding : 5px;
@@ -46,6 +47,7 @@
       color : #fff;
       background-color : @timeline-bg-primary;
       font-weight: bold;
+      .text-overflow-ellipsis();
     }
     .time-desc {
       padding-left : 10px;
@@ -55,6 +57,7 @@
       background-color : @timeline-bg-second;
       a {
         display: block;
+        .text-overflow-ellipsis();
       }
     }
 

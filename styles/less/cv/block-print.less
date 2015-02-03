@@ -29,7 +29,12 @@
   }
 
   .info-general {
-    text-align: right;
+    margin-top : 20px;
+    img {
+      width : 200px;
+      margin: 0 auto;
+    }
+    text-align: center;
     .name {
       display : block;
       font-size : 54px;
@@ -46,6 +51,19 @@
     .timeline-wrap {
       .time-desc {
         line-height: @timeline-height-ligne;
+      }
+    }
+  }
+  .footer {
+    background-color: @color-second;
+    border-radius : 5px;
+    div.row > div {
+      & > span,
+      & > a {
+        height: 40px;
+        line-height: 40px;
+        display : block;
+        .text-overflow-ellipsis();
       }
     }
   }
