@@ -3,11 +3,8 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>CV Lionel Meunier</title>
-    <link rel="stylesheet" href="bower_components/reveal.js/css/reveal.css"/>
-    <!--<link rel="stylesheet" href="bower_components/reveal.js/css/theme/black.css"/>-->
     <link rel="stylesheet" href="styles/css/styles.css"/>
     <link rel="stylesheet" href="styles/css/test.css"/>
-    <base href="http://localhost:63342/cv/"/>
     <script type="text/javascript" src="bower_components/underscore/underscore-min.js"></script>
     <script type="text/javascript"
             src="bower_components/underscore.string/dist/underscore.string.min.js"></script>
@@ -16,46 +13,18 @@
 
 </head>
 <body ng-app="CvLme" ng-controller="RootCtrl">
-<div class="reveal"
-     leap-swipe-left="left()"
-     leap-swipe-right="right()"
-     leap-swipe-up="down()"
-     leap-swipe-down="up()">
 
-    <div class="slides">
-        <section>
-            <h3>Bienvenu sur ma présentation</h3>
-            <img ng-src="{{ info.general.picture }}" alt="{{ info.general.firstName }} {{ info.general.lastName }}"/>
-            <p>{{ info.general.firstName }} {{ info.general.lastName }}</p>
-            <p>{{ info.general.title }}</p>
-        </section>
-        <section ng-repeat="section in sections">
-            <section ng-if="section.children" ng-repeat="children in section.children">
-                <div ng-include="children.templateUrl"></div>
-            </section>
-            <div ng-include="section.templateUrl"></div>
-        </section>
-    </div>
-    <div class="slide-number">Mettre le numéro du slide</div>
-</div>
-
-<div ng-include="'views/info.html'"></div>
-
-<div ng-include="'views/print.html'"></div>
-
+<div ng-include="'views/page.html'"></div>
 
 <script type="text/javascript" src="bower_components/angular/angular.js"></script>
 <script type="text/javascript" src="bower_components/angular-animate/angular-animate.js"></script>
-<script type="text/javascript" src="bower_components/headjs/dist/1.0.0/head.js"></script>
-<script type="text/javascript" src="bower_components/reveal.js/js/reveal.js"></script>
-
-
 <script type="text/javascript" src="scripts/app.js"></script>
 
 <script type="text/javascript" src="scripts/constant/parts.js"></script>
 <script type="text/javascript" src="scripts/constant/info.js"></script>
 
 <script type="text/javascript" src="scripts/controller/RootCtrl.js"></script>
+<script type="text/javascript" src="scripts/directive/tree.js"></script>
 
 
 <script type="text/javascript" src="scripts/service/reveal.js"></script>

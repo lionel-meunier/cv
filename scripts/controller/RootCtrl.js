@@ -11,7 +11,7 @@
         $scope.sections = parts;
         $scope.info = info;
 
-        reveal.init();
+        //reveal.init();
 
         $scope.left = function () {
             console.log('left');
@@ -25,6 +25,16 @@
         $scope.down = function () {
             console.log('down');
         };
+    }]);
+
+    mod.filter('classBoot',[function(){
+        return function(a,b,c){
+            if(c === 1){
+                a += (12/b);
+                return a;
+            }
+            return 'niv-'+c;
+        }
     }]);
 
 })();
