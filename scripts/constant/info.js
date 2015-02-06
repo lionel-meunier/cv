@@ -52,28 +52,27 @@
                 localisation: 'Université Montpellier 2'
             },
             {
-                dateBegin: new Date('2003-10-01'),
-                dateEnd: new Date('2007-06-01'),
+                dateBegin: new Date('2009-10-01'),
+                dateEnd: new Date('2010-02-01'),
                 title: 'Formation CNAM en Informatique',
                 localisation: 'CNAM-LR'
             }
         ],
         training: [
             {
-                date: new Date('2008-10-1'),
-                title: 'Formation expertise CSS',
+                date: new Date('2013-04-8'),
+                title: 'Formation AngularJS',
                 formateur: {
-                    name: 'Raphaël Goetter',
-                    url: 'http://www.goetter.fr/',
+                    name: 'Thierry Chatel',
+                    url: 'http://www.methotic.com/formation-angularjs#formation-me',
                     societe: {
-                        name: 'Alsacréation',
-                        url: 'http://www.alsacreations.com/'
+                        name: 'MethoTIC Conseil',
+                        url: 'http://www.methotic.com/formation-angularjs'
                     }
-
                 }
             },
             {
-                date: new Date('2008-10-1'),
+                date: new Date('2011-11-14'),
                 title: 'Formation Expertise JQuery',
                 formateur: {
                     name: 'Rodolphe Rimelé',
@@ -85,15 +84,16 @@
                 }
             },
             {
-                date: new Date('2008-10-1'),
-                title: 'Formation AngularJS',
+                date: new Date('2010-06-24'),
+                title: 'Formation expertise CSS',
                 formateur: {
-                    name: 'Thierry Chatel',
-                    url: 'http://www.methotic.com/formation-angularjs#formation-me',
+                    name: 'Raphaël Goetter',
+                    url: 'http://www.goetter.fr/',
                     societe: {
-                        name: 'MethoTIC Conseil',
-                        url: 'http://www.methotic.com/formation-angularjs'
+                        name: 'Alsacréation',
+                        url: 'http://www.alsacreations.com/'
                     }
+
                 }
             }
         ],
