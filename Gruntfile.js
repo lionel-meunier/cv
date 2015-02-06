@@ -279,8 +279,13 @@ module.exports = function (grunt) {
 
        less : {
            dev : {
+               files: {
+                   "styles/css/styles.css": "styles/less/styles.less"
+               }
+           },
+           prod : {
                options : {
-                   paths: ["assets/css"]
+                   compress : true
                },
                files: {
                    "styles/css/styles.css": "styles/less/styles.less"
@@ -331,16 +336,14 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('dev', [
-        'less:dev'
+        'watch:less'
     ]);
 
     grunt.registerTask('build', [
-        'jshint:all'
+        'less:prod'
     ]);
 
     grunt.registerTask('default', [
-        'jshint:all',
-        'jshint:test',
         'build'
     ]);
 };

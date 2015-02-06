@@ -6,34 +6,20 @@
 
     var mod = angular.module('CvLme');
 
-    mod.controller('RootCtrl', ['$scope', 'parts', 'reveal', 'info', function ($scope, parts, reveal, info) {
+    mod.controller('RootCtrl', ['$scope', 'info', function ($scope, info) {
 
-        $scope.sections = parts;
         $scope.info = info;
-
-        //reveal.init();
-
-        $scope.left = function () {
-            console.log('left');
-        };
-        $scope.right = function () {
-            console.log('right');
-        };
-        $scope.up = function () {
-            console.log('up');
-        };
-        $scope.down = function () {
-            console.log('down');
-        };
     }]);
 
     mod.filter('classBoot',[function(){
         return function(a,b,c){
+            var classReturn = '';
             if(c === 1){
                 a += (12/b);
-                return a;
+                classReturn += a+' ';
             }
-            return 'niv-'+c;
+            classReturn += 'niv-'+c;
+            return classReturn;
         }
     }]);
 

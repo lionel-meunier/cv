@@ -11,8 +11,8 @@
             lastName: 'Meunier',
             firstName: 'Lionel',
             email: 'lionel.meunier@outlook.fr',
-            web: 'urlcv',
-            phone: 'urlcv',
+            web: 'https://github.com/lionel-meunier/cv',
+            phone: '06.86.02.20.74',
             picture: 'images/lme-clair.JPG',
             title: 'Développeur FrontEnd',
             links: [
@@ -156,18 +156,20 @@
                 ]
             },
             {
-                name: 'Frontend',
+                name: 'Backend',
                 children: [
                     {
                         name: 'Php',
-                        children: [{
-                            name: 'PHP5',
-                            logo: 'fa-facebook'
-                        },
+                        children: [
+                            {
+                                name: 'PHP5',
+                                logo: 'fa-facebook'
+                            },
                             {
                                 name: 'TYPO3',
                                 logo: 'fa-facebook'
-                            }]
+                            }
+                        ]
                     }, {
                         name: 'Java',
                         children: [
@@ -182,53 +184,113 @@
                         ]
                     }, {
                         name: 'NodeJs',
-                        children: [{
-                            name: 'express',
-                            logo: 'fa-facebook'
-                        },
+                        children: [
+                            {
+                                name: 'express',
+                                logo: 'fa-facebook'
+                            },
                             {
                                 name: 'io-socket',
                                 logo: 'fa-facebook'
-                            }]
+                            }
+                        ]
                     }, {
                         name: 'Mobile',
-                        children: [{
-                            name: 'Titanium',
-                            logo: 'fa-facebook'
-                        },
+                        children: [
+                            {
+                                name: 'Titanium',
+                                logo: 'fa-facebook'
+                            },
                             {
                                 name: 'Phonegap',
                                 logo: 'fa-facebook'
-                            }]
+                            }
+                        ]
                     }
                 ]
             },
             {
                 name: 'Other',
-                children: [{
-                    name: 'Conception',
-                    desc: 'MVC, ORM'
-                },
+                children: [
+                    {
+                        name: 'Conception',
+                        children: [
+                            {
+                                name: 'MVC'
+                            },
+                            {
+                                name: 'ORM'
+                            }
+                        ]
+                    },
                     {
                         name: 'Versioning',
-                        desc: 'Git, SVN'
+                        children: [
+                            {
+                                name: 'Git'
+                            },
+                            {
+                                name: 'SVN'
+                            }
+                        ]
                     },
                     {
                         name: 'Outils',
-                        desc: 'Grunt, Bower, Gulp, Yeoman'
+                        children: [
+                            {
+                                name: 'Grunt'
+                            },
+                            {
+                                name: 'Bower'
+                            },
+                            {
+                                name: 'Gulp'
+                            }
+                        ]
                     },
                     {
                         name: 'Test',
-                        desc: 'Karma/Jasmine, Mocha, Protractor'
+                        children: [
+                            {
+                                name: 'Karma'
+                            },
+                            {
+                                name: 'Jasmine'
+                            },
+                            {
+                                name: 'Mocha'
+                            },
+                            {
+                                name: 'Protractor'
+                            }
+                        ]
                     },
                     {
                         name: 'Framework',
-                        desc: 'Bootstrap 2 et 3, Angular Material Design'
+                        children: [
+                            {
+                                name: 'Bootstrap 2 et 3'
+                            },
+                            {
+                                name: 'Angular Material Design'
+                            }
+                        ]
                     },
                     {
                         name: 'API',
-                        desc: 'Google Map, Twitter, Facebook'
-                    }]
+                        children: [
+                            {
+                                name: 'Google Map'
+                            },
+                            {
+                                name: 'Twitter'
+                            },
+                            {
+                                name: 'Facebook'
+                            }
+                        ]
+                    }
+                ]
             }
         ]
 

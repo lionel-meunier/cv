@@ -53,14 +53,18 @@
   }
 }
 
-@diamond-width : 80px;
-@diamond-height : 80px;
+@diamond-width : 40px;
+@diamond-height : 40px;
 @diamond-color : @color-primary;
 @diamond-icon-color : #fff;
 .diamond {
   .diamond(@diamond-width;@diamond-height;@diamond-color;@diamond-icon-color);
 }
-
+@media print {
+  .diamond {
+    .diamond(40px;40px;@diamond-color;@diamond-icon-color);
+  }
+}
 
 
 .burst-12(@width;@height;@color) {
@@ -99,4 +103,10 @@
 
 .burst-12 {
   .burst-12(@burst-width;@burst-height;@burst-color);
+}
+
+@media print {
+  .burst-12 {
+    .burst-12(10px;10px;@burst-color);
+  }
 }
