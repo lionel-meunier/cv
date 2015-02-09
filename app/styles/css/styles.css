@@ -4420,13 +4420,13 @@ h2.title-ligne {
   font-weight: bold;
 }
 .competence .niv-2 > .content > .name:after {
-  content: ':';
+  content: ' : ';
 }
 .competence .niv-3 {
   display: inline;
 }
 .competence .niv-3 > .content > .name:after {
-  content: ',';
+  content: ', ';
 }
 .competence .niv-3:last-child > .content > .name:after {
   content: '';
