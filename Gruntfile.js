@@ -146,7 +146,16 @@ module.exports = function (grunt) {
                 ]
             }
         },
-
+        filerev: {
+            dist: {
+                src: [
+                    '<%= yeoman.dist %>/scripts/{,*/}*.js',
+                    '<%= yeoman.dist %>/styles/{,*/}*.css',
+                    '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+                    '<%= yeoman.dist %>/styles/fonts/*'
+                ]
+            }
+        },
         // Renames files for browser caching purposes
         rev: {
             dist: {
@@ -193,18 +202,6 @@ module.exports = function (grunt) {
                 ]
             }
         },
-        svgmin: {
-            dist: {
-                files: [
-                    {
-                        expand: true,
-                        cwd: '<%= yeoman.app %>/images',
-                        src: '{,*/}*.svg',
-                        dest: '<%= yeoman.dist %>/images'
-                    }
-                ]
-            }
-        },
         htmlmin: {
             dist: {
                 options: {
@@ -240,7 +237,7 @@ module.exports = function (grunt) {
                             'views/**/{,*/}*.html',
                             'bower_components/**/*',
                             'images/{,*/}*.{webp}',
-                            'fonts/*',
+                            'styles/fonts/*',
                             //temporary until imagemin actually works
                             'images/*'
                         ]
@@ -270,25 +267,14 @@ module.exports = function (grunt) {
                 'copy:styles'
             ],
             dist: [
-                'copy:styles',
-                //BUG pour le moment désactivé
-//        'imagemin',
-                'svgmin'
+                'copy:styles'
             ]
         },
 
        less : {
-           dev : {
+           styles : {
                files: {
-                   "styles/css/styles.css": "styles/less/styles.less"
-               }
-           },
-           prod : {
-               options : {
-                   compress : true
-               },
-               files: {
-                   "styles/css/styles.css": "styles/less/styles.less"
+                   "<%= yeoman.app %>/styles/css/styles.css": "<%= yeoman.app %>/styles/less/styles.less"
                }
            }
        },
@@ -303,44 +289,18 @@ module.exports = function (grunt) {
     });
 
 
-    grunt.registerTask('serve', function (target) {
-        if (target === 'dist') {
-            return grunt.task.run(['build', 'connect:dist:keepalive']);
-        }
-
-        grunt.task.run([
-            'clean:server',
-            'concurrent:server',
-            'autoprefixer',
-            'connect:livereload',
-            'watch'
-        ]);
-    });
-
-    grunt.registerTask('server', function () {
-        grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-        grunt.task.run(['serve']);
-    });
-
-    var previousForceState = grunt.option('force');
-    grunt.registerTask('force', function (set) {
-        if (set === 'on') {
-            grunt.option('force', true);
-        }
-        else if (set === 'off') {
-            grunt.option('force', false);
-        }
-        else if (set === 'restore') {
-            grunt.option('force', previousForceState);
-        }
-    });
-
-    grunt.registerTask('dev', [
-        'watch:less'
-    ]);
-
     grunt.registerTask('build', [
-        'less:prod'
+        'clean:dist',
+        'less:styles',
+        'useminPrepare',
+        'concurrent:dist',
+        'autoprefixer',
+        'concat',
+        'copy:dist',
+        'cssmin',
+        'uglify',
+        'usemin',
+        'htmlmin'
     ]);
 
     grunt.registerTask('default', [
