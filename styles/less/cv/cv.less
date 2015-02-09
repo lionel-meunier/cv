@@ -2,9 +2,20 @@
 @import "mixins";
 @import "fonts";
 @import "page";
-@import "info-general";
-@import "shape";
-@import "timeline";
-@import "xp";
-@import "competence";
-@import "footer";
+.cv {
+  @import "info-general";
+  @import "shape";
+  @import "timeline";
+  @import "xp";
+  @import "competence";
+  @import "footer";
+}
+.lm {
+  @import "lm";
+}
+
+
+div.page-break {
+  page-break-after: always;
+  page-break-inside: avoid;
+}

@@ -1,0 +1,95 @@
+<div class="page">
+    <form name="lm" class="lm">
+        <button class="btn btn-primary" ng-click="edit=!edit">
+            <span class="fa fa-edit"></span>
+        </button>
+        <ul class="info-general">
+            <li class="name">{{ info.general.firstName }} {{ info.general.lastName }}</li>
+            <li class="address">
+                <span>
+                    <i class="icon fa fa-home"></i>
+                    {{ info.general.address }}
+                </span>
+            </li>
+            <li class="phone">
+                <span>
+                    <i class="icon fa fa-phone"></i>
+                    {{ info.general.phone }}
+                </span>
+            </li>
+            <li class="mail">
+                <a ng-href="mailto:{{ info.general.email }}">
+                    <i>@</i>
+                    {{ info.general.email }}
+                </a>
+            </li>
+            <li class="age">
+                <span>
+                    <i class="icon fa fa-calendar"></i>
+                    {{ info.general.birthday | age }}
+                </span>
+            </li>
+        </ul>
+        <ul class="info-societe">
+            <li class="name">
+                <span ng-if="!edit">
+                    {{ motivation.company.name }}
+                </span>
+                <span ng-if="edit">
+                    <input type="text" ng-model="motivation.company.name" required/>
+                </span>
+            </li>
+            <li class="address">
+                <span ng-if="!edit">
+                    <i class="icon fa fa-home"></i>
+                    {{ motivation.company.address }}
+                </span>
+                <span ng-if="edit">
+                    <input type="text" ng-model="motivation.company.address" required/>
+                </span>
+            </li>
+            <li class="phone">
+                 <span ng-if="!edit">
+                    <i class="icon fa fa-phone"></i>
+                    {{ motivation.company.phone }}
+                </span>
+                <span ng-if="edit">
+                    <input type="text" ng-model="motivation.company.phone" required/>
+                </span>
+            </li>
+            <li class="mail">
+                <a ng-href="mailto:{{ motivation.company.email }}" ng-if="!edit">
+                    <i>@</i>
+                    {{ motivation.company.email }}
+                </a>
+                <span ng-if="edit">
+                    <input type="email" ng-model="motivation.company.email" required/>
+                </span>
+            </li>
+        </ul>
+        <div class="object">
+            <span>Objet :</span>
+            <span>
+                <span ng-if="!edit">
+                {{ motivation.object }}
+                </span>
+                <span ng-if="edit">
+                    <input type="text" ng-model="motivation.object" required/>
+                </span>
+            </span>
+        </div>
+        <div class="sections">
+            <p class="motivation-section" ng-repeat="section in motivation.sections" m-section="section">
+                <span ng-if="!edit">{{ section.text }}</span>
+                <span ng-if="edit">
+                    <textarea ng-model="section.text" required/>
+                </span>
+            </p>
+            <button class="btn btn-primary" ng-if="edit" ng-click="addSection()">
+                <span class="fa fa-plus"></span>
+            </button>
+        </div>
+
+
+    </form>
+</div>

@@ -1,41 +1,42 @@
-.info-general {
-  text-align: center;
-  font-family: @font-maranth;
-  .my-picture {
-    max-width : 200px;
-    margin: 0 auto;
-  }
-  .name,
-  .title {
-    display: block;
-  }
-  .name {
-    font-size: @font-size-big;
-    color : @color-primary;
-    font-weight: bold;
-  }
-}
 
-h2.title-ligne {
-  font-family: @font-maranth;
-  font-size: @font-size-large;
-  border-bottom: 1px solid @color-primary;
-}
-
-
-@media print {
   .info-general {
+    text-align: center;
+    font-family: @font-maranth;
     .my-picture {
-      max-width : 75px;
+      max-width : 200px;
+      margin: 0 auto;
+    }
+    .name,
+    .title {
+      display: block;
     }
     .name {
-      font-size: @font-size-big/2;
-    }
-    .title {
-      font-size: @font-size-small;
+      font-size: @font-size-big;
+      color : @color-primary;
+      font-weight: bold;
     }
   }
+
   h2.title-ligne {
-    margin-top: 8.5pt;
+    font-family: @font-maranth;
+    font-size: @font-size-large;
+    border-bottom: 1px solid @color-primary;
   }
-}
+
+
+  @media print {
+    .info-general {
+      .my-picture {
+        max-width : 75px;
+      }
+      .name {
+        font-size: @font-size-big/2;
+      }
+      .title {
+        font-size: @font-size-small;
+      }
+    }
+    h2.title-ligne {
+      margin-top: 8.5pt;
+    }
+  }

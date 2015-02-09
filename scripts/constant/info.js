@@ -15,6 +15,8 @@
             phone: '06.86.02.20.74',
             picture: 'images/lme-clair.JPG',
             title: 'Développeur FrontEnd',
+            birthday: new Date('1983-11-20'),
+            address: '34070 Montpellier',
             links: [
                 {
                     name: 'github',
