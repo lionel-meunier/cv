@@ -11,7 +11,7 @@
             lastName: 'Meunier',
             firstName: 'Lionel',
             email: 'lionel.meunier@outlook.fr',
-            web: 'https://github.com/lionel-meunier/cv',
+            web: 'http://lionel-meunier.github.io/cv/dist',
             phone: '06.86.02.20.74',
             picture: 'images/lme-clair.JPG',
             title: 'Développeur FrontEnd',
